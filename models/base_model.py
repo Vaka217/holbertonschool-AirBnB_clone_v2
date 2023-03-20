@@ -6,7 +6,7 @@ import models
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime
 
-
+"""declarative base -- base_model does not inherit from this"""
 Base = declarative_base()
 
 

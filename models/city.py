@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the city class"""
+"""This is the city class, which now uses SQLAlchemy"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String

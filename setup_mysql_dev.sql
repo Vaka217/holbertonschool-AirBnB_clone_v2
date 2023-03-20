@@ -1,4 +1,4 @@
--- prepares an SQL server for the project
+-- prepares an SQL server assuming it doesnt already exist
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db\g
 CREATE USER IF NOT EXISTS hbnb_dev@localhost\g
 SET PASSWORD FOR hbnb_dev@localhost = 'hbnb_dev_pwd'\g
