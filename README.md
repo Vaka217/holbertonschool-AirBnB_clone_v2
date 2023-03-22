@@ -1,3 +1,5 @@
+<b>This README was written by its repository's original authors: Ezra Nobrega and Justin Majetich. This is a forked repository that aims to add MySQL functionality to a pre-existing database, and it was created by Mauricio de Betolaza del Puerto and Gonzalo Cabaleiro.</b>
+
 <center> <h1>HBNB - The Console</h1> </center>
 
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.

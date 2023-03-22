@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the file storage class for AirBnB, 
+"""This is the file storage class for AirBnB,
 though DBStorage takes precedence
 """
 import json
