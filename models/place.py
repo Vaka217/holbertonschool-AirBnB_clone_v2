@@ -5,7 +5,8 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
-import models
+from models.review import Review
+from models.amenity import Amenity
 
 
 place_amenity = Table("place_amenity", Base.metadata,
@@ -58,23 +59,12 @@ class Place(BaseModel, Base):
         @property
         def reviews(self):
             """ Returns list of reviews.id """
-            var = models.storage.all()
-            lista = []
-            result = []
-            for key in var:
-                review = key.replace('.', ' ')
-                review = shlex.split(review)
-                if (review[0] == 'Review'):
-                    lista.append(var[key])
-            for elem in lista:
-                if (elem.place_id == self.id):
-                    result.append(elem)
-            return (result)
+            return [Review.all(Review.place_id == self.id)]
 
         @property
         def amenities(self):
             """ Returns list of amenity ids """
-            return self.amenity_ids
+            return [Amenity.all(Amenity.id == self.id)]
 
         @amenities.setter
         def amenities(self, obj=None):
