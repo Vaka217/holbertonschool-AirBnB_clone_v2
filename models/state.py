@@ -21,5 +21,5 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
-	"""Return all cities from a state"""
+        """Return all cities from a state"""
         return [City.all(City.state_id == self.id)]
