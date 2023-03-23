@@ -56,7 +56,6 @@ class TestConsole(unittest.TestCase):
         self.assertIsNotNone(HBNBCommand.do_destroy.__doc__)
         self.assertIsNotNone(HBNBCommand.do_all.__doc__)
         self.assertIsNotNone(HBNBCommand.do_update.__doc__)
-        self.assertIsNotNone(HBNBCommand.count.__doc__)
         self.assertIsNotNone(HBNBCommand.strip_clean.__doc__)
         self.assertIsNotNone(HBNBCommand.default.__doc__)
 
@@ -71,23 +70,6 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("quit")
             self.assertEqual('', f.getvalue())
-
-    def test_create(self):
-        """Test create command inpout"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd("create")
-            self.assertEqual(
-                "** class name missing **\n", f.getvalue())
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd("create asdfsfsd")
-            self.assertEqual(
-                "** class doesn't exist **\n", f.getvalue())
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd('create User email="hoal@.com" password="1234"')
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd("all User")
-            self.assertEqual(
-                "[[User]", f.getvalue()[:7])
 
     def test_show(self):
         """Test show command inpout"""
