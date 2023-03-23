@@ -214,7 +214,7 @@ class TestConsole(unittest.TestCase):
                 "** value missing **\n", f.getvalue())
 
     def test_create(self):
-    """Test create command. Check with all command"""
+        """Test create command. Check with all command"""
         with patch("sys.stdout", new=StringIO()) as f:
             self.HBNB.onecmd("create BaseModel")
             base = f.getvalue().strip()
@@ -256,6 +256,7 @@ class TestConsole(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as f:
             self.HBNB.onecmd("all City")
             self.assertIn(city, f.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()
