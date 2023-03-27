@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 import models
 from models.city import City
 import shlex
+from os import getenv
 
 
 class State(BaseModel, Base):
@@ -19,18 +20,19 @@ class State(BaseModel, Base):
     cities = relationship("City", cascade='all, delete, delete-orphan',
                           backref="state")
 
-    @property
-    def cities(self):
-        """Return all cities from a state"""
-        var = models.storage.all()
-        lst = []
-        result = []
-        for key in var:
-            city = key.replace('.', ' ')
-            city = shlex.split(city)
-            if (city[0] == 'City'):
-                lst.append(var[key])
-        for elem in lst:
-            if (elem.state_id == self.id):
-                result.append(elem)
-        return (result)
+    if getenv("HBNB_TYPE_STORAGE") != "db":
+        @property
+        def cities(self):
+            """Return all cities from a state"""
+            var = models.storage.all()
+            lst = []
+            result = []
+            for key in var:
+                city = key.replace('.', ' ')
+                city = shlex.split(city)
+                if (city[0] == 'City'):
+                    lst.append(var[key])
+            for elem in lst:
+                if (elem.state_id == self.id):
+                    result.append(elem)
+            return (result)
