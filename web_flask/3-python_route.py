@@ -31,14 +31,14 @@ def print_hbnb():
 @app.route("/c/<text>", strict_slashes=False)
 def print_c(text):
     """ displays “C ” followed by the value of the text variable"""
-    return f"C {escape(text).replace('_', ' ')}"
+    return "C {}".format(escape(text).replace('_', ' '))
 
 
 @app.route("/python/", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def print_python(text='is cool'):
     """ displays “Python ” followed by the value of the text variable"""
-    return f"Python {escape(text).replace('_', ' ')}"
+    return "Python {}".format(escape(text).replace('_', ' '))
 
 
 if __name__ == '__main__':
