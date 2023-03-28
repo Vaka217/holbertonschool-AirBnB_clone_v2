@@ -29,7 +29,11 @@ def show_states():
 @app.route("/states/<id>", strict_slashes=False)
 def show_cities(id):
     """ displays a HTML page with the list of all cities of a State"""
-    return render_template('9-states.html', states=storage.all(State), id=id)
+    for st in storage.all(State):
+        if st.id == id:
+            return render_template('9-states.html', states=storage.all(State),
+                                   state=st)
+    return render_template('9-states.html', states=storage.all(State))
 
 
 @app.teardown_appcontext
