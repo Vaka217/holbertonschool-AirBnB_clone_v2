@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route("/states", strict_slashes=False)
 def show_states():
     """ displays a HTML page with the list of all State objects in the DB"""
-    return render_template('9-states.html', states=storage.all(State))
+    return render_template('9-states.html', state=storage.all(State))
 
 
 @app.route("/states/<id>", strict_slashes=False)

@@ -7,7 +7,7 @@
     {% if state is mapping %}
         <H1>States</H1>
         <UL>
-        {% for st in states.values()|sort(attribute='name') %}
+        {% for st in state.values()|sort(attribute='name') %}
             <LI>{{ st.id }}: <B>{{ st.name }}</B></LI>
         {% endfor %}
         </UL>
