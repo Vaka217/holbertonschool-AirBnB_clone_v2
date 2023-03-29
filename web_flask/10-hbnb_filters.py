@@ -22,7 +22,7 @@ app = Flask(__name__)
 def show_filters():
     """ displays a HTML page with the list of all filters"""
     return render_template('10-hbnb_filters.html', states=storage.all(State),
-                           amenities=storage.all(Amenity)
+                           amenities=storage.all(Amenity))
 
 
 @app.teardown_appcontext
